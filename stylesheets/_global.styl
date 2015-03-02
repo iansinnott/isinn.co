@@ -1,0 +1,188 @@
+global-reset()
+
+// Variables {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+content-width = 1100px
+body-font = 'Helvetica Neue', Helvetica, Arial, sans-serif
+black = #464848
+blue = #4576AF
+yellow = #FBF6AE
+gray = #8A8A8A
+gray-bd = #949599
+gray-txt = #9B9B9B
+maroon = #C15467
+purple = #3E4084
+off-white = #fafafa
+
+// }}} END Variables
+
+// Mixins {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Calculate a px amount as a percentage
+// Note that the '' are necessary to cast as a percentage
+pct(number)
+  unit(number / content-width * 100, '%')
+
+// Create a downwards triangle
+triangle-down(color = red, w = 50px, h = 25px)
+  position relative
+  &:after
+    content ''
+    width 0
+    height 0
+    border-left (w/2) solid transparent
+    border-right (w/2) solid transparent
+    border-top h solid color
+    {block}
+
+
+// }}} END Mixins
+
+// General {{{
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+*
+  box-sizing border-box
+
+body
+  line-height 1.5
+  font-family body-font
+  background #FEFEFE
+  color black
+  font-size 18px
+  text-align center
+  +desktop()
+    text-align left
+
+img
+  max-width 100%
+  width auto
+
+// }}} END General
+
+// Generated Styles
+// You will likely want to change these
+
+.title
+  margin-top 50px
+  font-size 32px
+  font-weight bold
+  +desktop()
+    font-size 48px
+    margin-bottom 40px
+
+vspace = 20px
+
+h1
+  margin-top vspace
+  font-weight 500
+  font-size 48px
+  margin-bottom vspace
+  +desktop()
+    font-size 68px
+    margin-top 80px
+
+h2
+  font-size 20px
+  margin-bottom vspace
+  margin-top vspace
+
+footer
+  margin-top 0
+  padding-top 10px
+
+.container
+  center(content-width, pct(20))
+  padding-top 100
+
+a
+  transition color .2s ease-out, background .2s ease-out
+  color blue
+  text-decoration none
+
+li
+  +above(600px)
+    display inline-block
+
+.copy
+  display block
+  color lighten(gray, 60%)
+  margin-bottom 10px
+
+btn()
+  display block
+  text-decoration none
+  background blue
+  color white
+  padding 20px 0
+  text-align center
+  margin-bottom 10px
+  font-size 24px
+  font-weight 300
+  border-radius 5px
+  &:hover
+    background darken(blue, 20%)
+  +above(600px)
+    display inline-block
+    width 230px
+    &:first-child
+      margin-right 10px
+
+btn-o()
+  btn()
+  background transparent
+  color blue
+  border 1px solid blue
+  &:hover
+    background blue
+    color white
+
+.btn-o
+  btn-o()
+
+
+.btn
+.btn-purple
+  btn()
+
+
+.btn-purple
+  background purple
+  &:hover
+    background darken(purple, 20%)
+
+.face
+  padding-top 30px
+
+  img
+    border 3px solid white
+    box-shadow 0 2px 2px 2px rgba(0,0,0,.3)
+    border-radius 50%
+    +tablet()
+      max-width 400px
+
+  +desktop()
+    float left
+    width 45%
+
+.text
+  +desktop()
+    float right
+    width 50%
+
+
+.controls
+  +desktop()
+    margin-top 50px
+    margin-bottom 50px
+
+#projects
+  border-top 1px solid lighten(gray, 60%)
+  border-bottom 1px solid lighten(gray, 60%)
+  text-align center
+  background lighten(gray, 80%)
+  margin-top 100px
+  padding-bottom 100px
+

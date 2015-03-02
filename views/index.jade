@@ -1,0 +1,24 @@
+extends layout
+block content
+  section
+    .container
+      .face
+        img(src='/images/shayla-drawing-box-big.jpg')
+      .text
+        h1 isinn.co
+        h2 Where Ian Sinnott builds cool stuff.
+
+        .controls
+          a.btn.projects(href='#projects') Current Projects
+          a.btn-purple.my-website(href='http://iansinnott.com') My Website
+
+        :markdown
+          ## I also have a [blog, which you can find here](http://blog.iansinnott.com).
+
+  section#projects
+    .container
+      h2.title Current Projects
+
+      ul.projects.horiz
+        li: a.btn-o(href='http://notedown.us') Notedown
+        li: a.btn-o(href='http://reference.isinn.co') Code Reference
